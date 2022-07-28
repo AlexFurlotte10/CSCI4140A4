@@ -111,19 +111,21 @@ can be found in either x or y. if not then returns error
 as per assignment 4 reqirements.
 */
 export const checkXYPo = (data) => {
-  const ZPO = []
-  for (const x of xProducts) {
-    if (xProducts.contains(x)) {
-      ZPO.add(x)
-      } else {
-          if (yProducts.contains(x)) {
-            ZPO.add(y)
-         } else {
-            console.log(err);
-         } 
-      }
-  } 
-}
+  if(insertXPo && insertYPo != err){
+    db.query("INSERT INTO y_POs204 SET ?", [data], (err, results) => {
+      console.log(results);
+    })
+    db.query("INSERT INTO x_POs204 SET ?", [data], (err, results) => {
+      console.log(results);
+    })
+  return;
+  }
+    else {
+      console.log(err)
+      return;
+    }
+  
+};
 
 
 export const insertLine = (data, results) => {

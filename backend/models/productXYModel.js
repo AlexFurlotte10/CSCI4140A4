@@ -106,6 +106,25 @@ export const insertYPo = (data) => {
     return;
   });
 };
+/*This function checks if the parts in po from z po
+can be found in either x or y. if not then returns error
+as per assignment 4 reqirements.
+*/
+export const checkXYPo = (data) => {
+  const ZPO = []
+  for (const x of xProducts) {
+    if (xProducts.contains(x)) {
+      ZPO.add(x)
+      } else {
+          if (yProducts.contains(x)) {
+            ZPO.add(y)
+         } else {
+            console.log(err);
+         } 
+      }
+  } 
+}
+
 
 export const insertLine = (data, results) => {
   db.query(
